@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace BEITEN
@@ -15,6 +16,7 @@ namespace BEITEN
     public partial class ExportForm : Form
     {
         PrivateFontCollection pfc = new PrivateFontCollection();
+        Command command = new Command();
         public ExportForm(string[] text)
         {
             InitializeComponent();
@@ -34,11 +36,14 @@ namespace BEITEN
             pfc.AddFontFile(Path.GetDirectoryName(Application.ExecutablePath) + @"\Nouveau_IBM_Stretch.ttf");
             label1.Font = new Font(pfc.Families[0], 12, FontStyle.Regular);
 
-
+            foreach(string s in text)
+            {
+                Console.WriteLine(s);
+            }
             ///Convert
             try
             {
-                Command command;
+                
                 List<string> commands = new List<string> { };
                 List<string> args = new List<string> { };
                 List<string> args2 = new List<string> { };
