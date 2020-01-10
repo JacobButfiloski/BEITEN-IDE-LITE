@@ -45,6 +45,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.eXPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,8 @@
             this.newToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.eXPORTToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
@@ -167,7 +169,6 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(836, 509);
             this.textBox1.TabIndex = 1;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.WordWrap = false;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
@@ -196,6 +197,13 @@
             this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "WORD COUNT: 0";
+            // 
+            // eXPORTToolStripMenuItem
+            // 
+            this.eXPORTToolStripMenuItem.Name = "eXPORTToolStripMenuItem";
+            this.eXPORTToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.eXPORTToolStripMenuItem.Text = "EXPORT";
+            this.eXPORTToolStripMenuItem.Click += new System.EventHandler(this.eXPORTToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -239,6 +247,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem dEFAULTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eXPORTToolStripMenuItem;
     }
 }
 

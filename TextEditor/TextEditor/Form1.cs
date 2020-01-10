@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BEITEN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -289,6 +290,27 @@ namespace TextEditor
         {
             label1.Text = "CHARACTERS: " + textBox1.Text.Count();
             label2.Text = "WORD COUNT: " + CountWords(textBox1.Text);
+
+            //
+            //IDE FUNCTIONALITY
+            //
+            if (textBox1.Text.Length > 1) {
+                char lastChar = textBox1.Text[textBox1.Text.Length - 1];
+                int caretPos;
+                switch(lastChar)
+                {
+                    case '{':
+                        caretPos = textBox1.SelectionStart;
+                        textBox1.Text += "}";
+                        textBox1.SelectionStart = caretPos;
+                        break;
+                    case '(':
+                        caretPos = textBox1.SelectionStart;
+                        textBox1.Text += ")";
+                        textBox1.SelectionStart = caretPos;
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -358,6 +380,12 @@ namespace TextEditor
             CreateCaret(textBox1.Handle, IntPtr.Zero, 11, textBox1.Font.Height);
             ShowCaret(textBox1.Handle);
             
+        }
+
+        private void eXPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportForm form = new ExportForm(textBox1.Lines);
+            form.Show();
         }
     }
     /// <summary>

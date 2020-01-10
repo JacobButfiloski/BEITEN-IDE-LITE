@@ -1,3 +1,3 @@
 13
-LIGHTGRAY
-CENTER
+LightGray
+Left
