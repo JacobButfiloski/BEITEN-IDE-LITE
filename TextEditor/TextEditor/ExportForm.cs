@@ -43,35 +43,31 @@ namespace BEITEN
             ///Convert
             try
             {
-                
+                //File.WriteAllLines(refURL, textBox1.Lines);
                 List<string> commands = new List<string> { };
                 List<string> args = new List<string> { };
                 List<string> args2 = new List<string> { };
-                for (int i = 0; i < textBox1.Lines.Length; i++)
+                List<string> args3 = new List<string> { };
+                for (int i = 0; i < text.Length; i++)
                 {
                     string[] refe = text[i].Split(' ');
                     commands.Add(refe[0].ToUpper());
                     if (refe.Length > 1) { args.Add(refe[1]); } else { args.Add(""); }
                     if (refe.Length > 2) { args2.Add(refe[2]); } else { args.Add(""); }
+                    if (refe.Length > 3) { args3.Add(refe[3]); } else { args.Add(""); }
                 }
 
                 command.command = commands.ToArray();
                 command.arg = args.ToArray();
                 command.arg2 = args.ToArray();
+                command.arg3 = args.ToArray();
                 string json = new JavaScriptSerializer().Serialize(command);
                 string[] jsonArr = json.Split('"');
-
-                for (int i = 0; i < jsonArr.Length; i++)
-                {
-                    jsonArr[i] += "\\\"";
-                }
-                json = "";
-                foreach (string s in jsonArr)
-                {
-                    json += s;
-                }
+                string news = "";
+                json = json.Replace('"', '\'');
                 textBox1.Text = "\"" + json + "\";";
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
             }
@@ -88,5 +84,6 @@ namespace BEITEN
         public string[] command;
         public string[] arg;
         public string[] arg2;
+        public string[] arg3;
     }
 }
